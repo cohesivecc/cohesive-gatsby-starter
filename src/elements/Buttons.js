@@ -30,3 +30,10 @@ export const SecondaryButton = styled(Button)`
     background: ${darken(0.2, colors.violet)};
   }
 `
+
+export const CancelButton = styled(Button)`
+  background: ${colors.rust};
+  &:hover {
+    background: ${darken(0.2, colors.rust)};
+  }
+`
