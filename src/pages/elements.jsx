@@ -5,7 +5,9 @@ import Icon from '../elements/Icon'
 const ElementsPage = () => {
   return (
     <div>
-      <Button>Sample button</Button>
+      <Button modifiers="hollow" color="teal">
+        Sample button
+      </Button>
       <SecondaryButton>Secondary button</SecondaryButton>
       <CancelButton>Cancel</CancelButton>
       <h1>Button</h1>

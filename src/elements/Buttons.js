@@ -1,8 +1,22 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components'
+import { applyStyleModifiers } from 'styled-components-modifiers'
 import { darken } from 'polished'
 
 import { colors, sanSerif } from '../utilities'
+
+const BUTTON_MODIFIERS = {
+  hollow: props => `
+    background: transparent;
+    color: ${colors[props.color]};
+    border-color: ${colors[props.color]};
+    &:hover {
+      background: transparent;
+      color: ${darken(0.2, colors[props.color])};
+      border-color: ${darken(0.2, colors[props.color])};
+    }
+  `,
+}
 
 export const Button = styled.button`
 	${sanSerif}
@@ -22,10 +36,13 @@ export const Button = styled.button`
   &:focus {
     outline: none;
   }
+
+  ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `
 
 export const SecondaryButton = styled(Button)`
   background: ${colors.violet};
+  border-color: ${colors.violet};
   &:hover {
     background: ${darken(0.2, colors.violet)};
   }
@@ -33,6 +50,7 @@ export const SecondaryButton = styled(Button)`
 
 export const CancelButton = styled(Button)`
   background: ${colors.rust};
+  border-color: ${colors.rust};
   &:hover {
     background: ${darken(0.2, colors.rust)};
   }
