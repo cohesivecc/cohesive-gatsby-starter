@@ -42,7 +42,7 @@ export const Button = styled.button`
 
 export const SecondaryButton = styled(Button)`
   background: ${colors.violet};
-  border-color: ${colors.violet};
+  /* border-color: ${colors.violet}; */
   &:hover {
     background: ${darken(0.2, colors.violet)};
   }
@@ -50,7 +50,7 @@ export const SecondaryButton = styled(Button)`
 
 export const CancelButton = styled(Button)`
   background: ${colors.rust};
-  border-color: ${colors.rust};
+  /* border-color: ${colors.rust}; */
   &:hover {
     background: ${darken(0.2, colors.rust)};
   }

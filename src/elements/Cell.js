@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled, { css } from 'styled-components'
-import { below } from '../utilities'
+import { below, cellPadding } from '../utilities'
 
 export const Cell = styled.div`
   flex: 0 0 auto;
@@ -25,6 +25,16 @@ export const Cell = styled.div`
   &.grid-x-margin {
     margin: 0 -0.9375rem;
   }
+
+  /* ${props =>
+    props.paddingAmount > 0 &&
+    css`
+      ${cellPadding({ paddingAmount: `${props.paddingAmount * 2}` })}
+    `} */
+
+  ${props => css`
+    ${cellPadding({ paddingAmount: `${props.paddingAmount * 2}` })}
+  `}
 `
 
 Cell.defaultProps = {
@@ -34,4 +44,5 @@ Cell.defaultProps = {
   xlarge: 12,
   isPadded: true,
   textAlign: 'left',
+  paddingAmount: 0,
 }

@@ -22,7 +22,7 @@ const ElementsPage = () => {
         <Cell xlarge="6" large="6" medium="6" small="12" style={{ background: 'pink' }}>
           <h3>50%</h3>
         </Cell>
-        <Cell xlarge="4" large="4" medium="4" small="4">
+        <Cell xlarge="4" large="4" medium="4" small="4" paddingAmount={2}>
           <h3>33% - Centered</h3>
         </Cell>
         <Cell xlarge="8" large="8" medium="8" small="8">
