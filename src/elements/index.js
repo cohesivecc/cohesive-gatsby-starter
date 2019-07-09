@@ -1,3 +1,6 @@
 export * from './Buttons'
-export * from './GridX'
+export * from './Card'
 export * from './Cell'
+export * from './Grid'
+export * from './GridX'
+export * from './Structure'
