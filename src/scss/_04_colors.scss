@@ -1,0 +1,18 @@
+@each $key, $color in $theme-palette {
+    .text-#{$key} { 
+        color: $color;
+    }
+    .bg-#{$key} {
+        background-color: $color;
+    }
+    .bg-overlay-#{$key} {
+        background-color: rgba($color, 0.85);
+    }
+
+    button.bg-#{$key}, .button.bg-#{$key} {
+        background-color: $color;
+        &:hover {
+            background-color: scale-color($color, $lightness: -15%);
+        }
+    }
+}

@@ -1,0 +1,77 @@
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+@function theme-font-family($key) {
+  @return map-deep-get($theme-fonts, $key, name);
+}
+@function theme-font-weight($key, $variant) {
+  @return map-deep-get($theme-fonts, $key, variants, $variant, weight);
+}
+@function theme-font-style($key, $variant) {
+  @return map-deep-get($theme-fonts, $key, variants, $variant, style);
+}
+@function theme-color($name) {
+  @return map-get($theme-palette, $name);
+}
+@function c($name) {
+  @return theme-color($name);
+}
+@function icon($name) {
+  @return map-get($theme-icons, $name);
+}
+@function i($name) {
+  @return icon($name);
+}
+
+@mixin theme-font($name, $variant) {
+  font-family: #{theme-font-family($name)};
+  font-weight: theme-font-weight($name, $variant);
+  font-style: theme-font-style($name, $variant);
+}
+
+@mixin transform($content) {
+  -webkit-transform: $content; /* android, safari, chrome */
+  -moz-transform: $content; /* old firefox */
+  -o-transform: $content; /* old opera */
+  -ms-transform: $content; /* old IE */
+  transform: $content;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($stuff) {
+  -webkit-animation: $stuff;
+  -moz-animation: $stuff;
+  -ms-animation: $stuff;
+  animation: $stuff;
+}
+//
+// /* ----------------------------------------------------------------------- */
+//
+// @include keyframes(pulse-yellow) {
+//   0% {
+//     background-color: theme-color(yellow);
+//   }
+//   50% {
+//     background-color: theme-color(yellow-alt);
+//   }
+//   100% {
+//     background-color: theme-color(yellow);
+//   }
+// }
